@@ -7,7 +7,8 @@ from bika.lims import messagefactory as _
 from bika.lims.events import LIMSCreatedEvent
 from bika.lims.permissions import *
 from bika.lims.permissions import disallow_default_contenttypes
-
+from immunarray.lims.permissions import AddClinicalSample
+from immunarray.lims.permissions import AddRandDSample
 
 def Added(lims, event):
     """When a new LIMS root is created, we must create it's folder structure
@@ -104,3 +105,13 @@ def structure_permissions(lims):
     mp = lims.configuration.calculations.manage_permission
     mp(AddCalculation, ['Manager', 'LabManager', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'Owner'], 0)
+
+    # lims/clinicalsamples
+    mp = lims.samples.manage_permission
+    mp(AddClinicalSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+
+    # lims/R&D samples
+    mp = lims.samples.manage_permission
+    mp(AddRandDSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
