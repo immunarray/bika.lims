@@ -16,11 +16,6 @@ class IPerson(Interface):
         required=True,
     )
 
-    middle_name = schema.TextLine(
-        title=_(u"Middle name"),
-        required=False,
-    )
-
     last_name = schema.TextLine(
         title=_(u"Last name"),
         required=False,
