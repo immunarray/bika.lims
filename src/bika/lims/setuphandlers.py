@@ -38,7 +38,12 @@ def setup_roles(context):
         'Member',
         'Reviewer',
         'RegulatoryInspector',
-        'Client'
+        'Client',
+        'RandDManager',
+        'RandDLabClerk',
+        'RandDAnalyst',
+        'Executive',
+        'SalesRep'
     ):
         if role not in prm.listRoleIds():
             prm.addRole(role)
@@ -95,6 +100,26 @@ def setup_groups(context):
         addgroup('RegulatoryInspectors',
                  title="Regulatory Inspectors",
                  roles=['Member', 'RegulatoryInspector'])
+    if 'RandDManager' not in groups:
+        addgroup('RandDManager',
+                 title="R&D Manager",
+                 roles=['Member', 'RandDManager'])
+    if 'RandDLabClerk' not in groups:
+        addgroup('RandDLabClerk',
+                 title="R&D Lab Clerk",
+                 roles=['Member', 'RandDLabClerk'])
+    if 'RandDAnalyst' not in groups:
+        addgroup('RandDAnalyst',
+                 title="R&D Analyst",
+                 roles=['Member', 'RandDAnalyst'])
+    if 'Executive' not in groups:
+        addgroup('Executive',
+                 title="Executive",
+                 roles=['Member', 'Executive'])
+    if 'SalesRep' not in groups:
+        addgroup('SalesRep',
+                 title='Sales Representative',
+                 roles=['Member' ,'SalesRep'])
 
 
 def setup_permissions(context):
