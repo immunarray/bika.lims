@@ -9,6 +9,7 @@ from bika.lims.permissions import *
 from bika.lims.permissions import disallow_default_contenttypes
 from immunarray.lims.permissions import AddClinicalSample
 from immunarray.lims.permissions import AddRandDSample
+from immunarray.lims.permissions import AddSite
 
 def Added(lims, event):
     """When a new LIMS root is created, we must create it's folder structure
@@ -30,7 +31,7 @@ def Added(lims, event):
 
 def create_structure(lims):
     for x in [
-        [lims, 'Folder', 'clients', _(u"Clients")],
+        [lims, 'Folder', 'sites', _(u"Sites")],
         [lims, 'Folder', 'samples', _(u"Samples")],
         [lims, 'Folder', 'analysisrequests', _(u"Analysis Requests")],
         [lims, 'Folder', 'configuration', _(u"Configuration")],
@@ -58,60 +59,73 @@ def create_structure(lims):
 
 
 def structure_permissions(lims):
-    mp = lims.clients.manage_permission
-    mp(AddClient, ['Manager', 'LabManager'], 0)
+    #lims/sites (clients)
+    mp = lims.sites.manage_permission
     mp(ModifyPortalContent, ['Manager', 'LabManager'], 0)
+    mp(AddSite, ['Manager', 'LabManager'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/samples
     mp = lims.samples.manage_permission
     mp(AddSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/analysisrequests
     mp = lims.analysisrequests.manage_permission
     mp(AddAnalysisRequest, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration (folder root)
     mp = lims.configuration.manage_permission
     mp(AddLaboratory, [], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration/departments
     mp = lims.configuration.departments.manage_permission
     mp(AddDepartment, ['Manager', 'LabManager', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration/contacts
     mp = lims.configuration.contacts.manage_permission
     mp(AddContact, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration/samplepoints
     mp = lims.configuration.samplepoints.manage_permission
     mp(AddSamplePoint, ['Manager', 'LabManager', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration/sampletypes
     mp = lims.configuration.sampletypes.manage_permission
     mp(AddSampleType, ['Manager', 'LabManager', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration/analysisservices
     mp = lims.configuration.analysisservices.manage_permission
     mp(AddAnalysisService, ['Manager', 'LabManager', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/configuration/calculations
     mp = lims.configuration.calculations.manage_permission
     mp(AddCalculation, ['Manager', 'LabManager', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/clinicalsamples
     mp = lims.samples.manage_permission
     mp(AddClinicalSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
 
     # lims/R&D samples
     mp = lims.samples.manage_permission
     mp(AddRandDSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
