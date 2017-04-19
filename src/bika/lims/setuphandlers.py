@@ -151,6 +151,7 @@ def postInstall(context):
 
     create_lims(portal)
     add_to_displayed_types('LIMSRoot')
+    add_to_displayed_types('AccountingRoot')
 
 
 def add_to_displayed_types(typename):
@@ -165,3 +166,8 @@ def add_to_displayed_types(typename):
 def create_lims(portal):
     if 'lims' not in portal:
         obj = api.content.create(portal, 'LIMSRoot', 'lims', _(u"LIMS"))
+
+# JP adding Accounting portal
+def create_accounting(portal):
+    if 'accounting' not in portal:
+        obj = api.content.create(portal, 'AccountingRoot', 'accounting', _(u"Accounting"))
