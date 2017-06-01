@@ -62,7 +62,7 @@ class IOrganisation(model.Schema):
     )
 
     physical_address_country = schema.TextLine(
-        title=_("Physical address"),
+        title=_("Physical address country"),
         required=False,
     )
 
