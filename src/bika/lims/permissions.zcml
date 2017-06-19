@@ -37,7 +37,6 @@
   <permission id="bika.lims.permissions.AddSampleType"
               title="Bika LIMS: Add Sample Type"/>
 
-
 </configure>
 
 
