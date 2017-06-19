@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import ListFolderContents
 from plone import api
 from zope.event import notify
 
@@ -10,6 +11,9 @@ from bika.lims.permissions import disallow_default_contenttypes
 from immunarray.lims.permissions import AddClinicalSample
 from immunarray.lims.permissions import AddRandDSample
 from immunarray.lims.permissions import AddSite
+from immunarray.lims.permissions import AddQCSample
+
+#from immunarray.lims.permissions import AddClincalAliquot
 
 def Added(lims, event):
     """When a new LIMS root is created, we must create it's folder structure
@@ -59,6 +63,7 @@ def create_structure(lims):
 
 
 def structure_permissions(lims):
+
     #lims/sites (clients)
     mp = lims.sites.manage_permission
     mp(ModifyPortalContent, ['Manager', 'LabManager'], 0)
@@ -129,3 +134,15 @@ def structure_permissions(lims):
     mp(AddRandDSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(permissions.AddFolder, [], 0)
+
+    # lims/QC samples
+    mp = lims.samples.manage_permission
+    mp(AddQCSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
+    mp(permissions.AddFolder, [], 0)
+
+    #lims
+    # mp = lims.manage_permission
+    # mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner', 'Administrator', 'Member'], 0)
+    # mp(ListFolderContents,['Manager', 'LabManager', 'LabClerk', 'Owner', 'Member', 'Administrator'], 0)
+    # mp(permissions.AddFolder, [], 0)
