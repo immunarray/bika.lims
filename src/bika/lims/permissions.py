@@ -13,7 +13,6 @@ AddLaboratory = "Bika LIMS: Add Laboratory"
 AddSample = "Bika LIMS: Add Sample"
 AddSamplePoint = "Bika LIMS: Add Sample Point"
 AddSampleType = "Bika LIMS: Add Sample Type"
-AddClinicalSample = "LIMS: Add Clinical Sample"
 
 
 def setup_default_permissions(portal):
@@ -32,7 +31,6 @@ def setup_default_permissions(portal):
     mp(AddSample, [], 0)
     mp(AddSamplePoint, [], 0)
     mp(AddSampleType, [], 0)
-    mp(AddClinicalSample, [], 0)
 
 
 def disallow_default_contenttypes(context):
