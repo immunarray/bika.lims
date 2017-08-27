@@ -4,7 +4,6 @@ from Products.CMFCore.permissions import ModifyPortalContent
 from bika.lims.permissions import AddAnalysisRequest
 from bika.lims.permissions import AddClient
 from bika.lims.permissions import AddContact
-from bika.lims.permissions import AddSample
 from bika.lims.permissions import AddSamplePoint
 from plone import api
 
@@ -34,7 +33,6 @@ def Added(client, event):
         disallow_default_contenttypes(instance)
 
     mp = client.samples.manage_permission
-    mp(AddSample, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner'], 0)
 
     mp = client.analysisrequests.manage_permission

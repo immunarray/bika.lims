@@ -75,7 +75,6 @@ def structure_permissions(lims):
 
     # lims/samples
     mp = lims.samples.manage_permission
-    mp(AddSample, ['Manager', 'LabManager', 'LabClerk', 'Owner', 'RandDLabClerk', 'RandDLabManager'], 0)
     mp(ModifyPortalContent, ['Manager', 'LabManager', 'LabClerk', 'Owner', 'RandDLabClerk', 'RandDLabManager'], 0)
     mp(View, ['Manager', 'LabManager', 'LabClerk', 'Owner', 'RandDLabClerk', 'RandDLabManager'], 0)
     mp(permissions.AddFolder, [], 0)

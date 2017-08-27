@@ -10,7 +10,6 @@ AddContact = "Bika LIMS: Add Contact"
 AddDepartment = "Bika LIMS: Add Department"
 AddLIMSRoot = "Bika LIMS: Add LIMSRoot"
 AddLaboratory = "Bika LIMS: Add Laboratory"
-AddSample = "Bika LIMS: Add Sample"
 AddSamplePoint = "Bika LIMS: Add Sample Point"
 AddSampleType = "Bika LIMS: Add Sample Type"
 
@@ -28,7 +27,6 @@ def setup_default_permissions(portal):
     mp(AddContact, [], 0)
     mp(AddDepartment, [], 0)
     mp(AddLaboratory, [], 0)
-    mp(AddSample, [], 0)
     mp(AddSamplePoint, [], 0)
     mp(AddSampleType, [], 0)
 
