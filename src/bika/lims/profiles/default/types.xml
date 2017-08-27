@@ -12,7 +12,6 @@
   <object name="Department" meta_type="Dexterity FTI"/>
   <object name="Laboratory" meta_type="Dexterity FTI"/>
   <object name="LIMSRoot" meta_type="Dexterity FTI"/>
-  <object name="Sample" meta_type="Dexterity FTI"/>
   <object name="SamplePoint" meta_type="Dexterity FTI"/>
   <object name="SampleType" meta_type="Dexterity FTI"/>
 </object>

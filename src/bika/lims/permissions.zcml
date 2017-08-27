@@ -28,9 +28,6 @@
   <permission id="bika.lims.permissions.AddLIMSRoot"
               title="Bika LIMS: Add LIMSRoot"/>
 
-  <permission id="bika.lims.permissions.AddSample"
-              title="Bika LIMS: Add Sample"/>
-
   <permission id="bika.lims.permissions.AddSamplePoint"
               title="Bika LIMS: Add Sample Point"/>
 
