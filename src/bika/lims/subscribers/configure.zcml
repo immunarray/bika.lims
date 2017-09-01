@@ -8,22 +8,4 @@
     handler="bika.lims.subscribers.limsroot.Added"
   />
 
-  <subscriber
-    for="bika.lims.interfaces.client.IClient
-                 zope.lifecycleevent.IObjectAddedEvent"
-    handler="bika.lims.subscribers.client.Added"
-  />
-
-  <subscriber
-    for="bika.lims.interfaces.contact.IContact
-                 zope.lifecycleevent.IObjectAddedEvent"
-    handler="bika.lims.subscribers.contact.Added"
-  />
-
-  <subscriber
-    for="bika.lims.interfaces.samplepoint.ISamplePoint
-                 zope.lifecycleevent.IObjectAddedEvent"
-    handler="bika.lims.subscribers.samplepoint.Added"
-  />
-
 </configure>

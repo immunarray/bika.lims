@@ -17,12 +17,5 @@ def Added(lims, event):
     The permissions set here are inherited by children.
     """
 
-    # Prevent anyone from adding a LIMSRoot inside of a LIMSRoot Allow for
-    # all users to see folder
-    # @formatter:off
-    lims.manage_permission(AddLIMSRoot, [], 0)
-    lims.manage_permission(ListFolderContents, ['Manager', 'LabManager', 'LabClerk', 'Owner', 'Administrator', 'Member', 'RandDLabClerk', 'RandDLabManager'], 0)
-    lims.manage_permission(View, ['Manager', 'LabManager', 'LabClerk', 'Owner', 'Administrator', 'Member', 'RandDLabClerk', 'RandDLabManager'], 0)
-    # @formatter:on
 
     notify(LIMSCreatedEvent(lims))
